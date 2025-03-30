@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import Footer from "../components/ui/footer"
 import {
   Check,
   ChevronRight,
@@ -25,6 +26,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useTheme } from "next-themes"
+import Navbar from "@/components/ui/navbar"
 
 export default function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -72,13 +74,13 @@ export default function LandingPage() {
       icon: <Zap className="size-5" />,
     },
     {
-      title: "Advanced Analytics",
-      description: "Gain valuable insights with real-time data visualization and reporting.",
+      title: "Easy Integration",
+      description: " Connectivity with ease and anywhere.",
       icon: <BarChart className="size-5" />,
     },
     {
-      title: "Team Collaboration",
-      description: "Work together seamlessly with integrated communication tools.",
+      title: "Personalised insights",
+      description: "personalised insights exclusively and seamlessly with integrated communication tools.",
       icon: <Users className="size-5" />,
     },
     {
@@ -87,115 +89,25 @@ export default function LandingPage() {
       icon: <Shield className="size-5" />,
     },
     {
-      title: "Seamless Integration",
-      description: "Connect with your favorite tools through our extensive API ecosystem.",
+      title: "Predefined Trained models",
+      description: "Vhat with the Models that are build on training by the high efficent data.",
       icon: <Layers className="size-5" />,
     },
     {
-      title: "24/7 Support",
-      description: "Get help whenever you need it with our dedicated support team.",
+      title: "Learn from your Every Prompt.",
+      description: "Always stays updated with the latest trends and technologies.",
       icon: <Star className="size-5" />,
     },
   ]
 
   return (
     <div className="flex min-h-[100dvh] flex-col">
-      <header
-        className={`sticky top-0 z-50 w-full backdrop-blur-lg transition-all duration-300 ${isScrolled ? "bg-background/80 shadow-sm" : "bg-transparent"}`}
-      >
-        <div className="container flex items-center justify-between h-16">
-          <div className="flex items-center gap-2 font-bold">
-            <div className="flex items-center justify-center rounded-lg size-8 bg-gradient-to-br from-primary to-primary/70 text-primary-foreground">
-              CS
-            </div>
-            <span>Chatify</span>
-          </div>
-          <nav className="hidden gap-8 md:flex">
-            {/* <Link
-              href="#features"
-              className="text-sm font-medium transition-colors text-muted-foreground hover:text-foreground"
-            >
-              Features
-            </Link> */}
-            {/* <Link
-              href="#testimonials"
-              className="text-sm font-medium transition-colors text-muted-foreground hover:text-foreground"
-            >
-              Testimonials
-            </Link> */}
-            <Link
-              href="#"
-              className="text-sm font-medium transition-colors text-muted-foreground hover:text-foreground"
-            >
-              Ai Agents
-            </Link>
-            {/* <Link
-              href="#faq"
-              className="text-sm font-medium transition-colors text-muted-foreground hover:text-foreground"
-            >
-              FAQ
-            </Link> */}
-          </nav>
-          <div className="items-center hidden gap-4 md:flex">
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full">
-              {mounted && theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-            {/* <Link
-              href="#"
-              className="text-sm font-medium transition-colors text-muted-foreground hover:text-foreground"
-            >
-              Log in
-            </Link> */}
-            <Button className="rounded-full">
-              Get Started
-              <ChevronRight className="ml-1 size-4" />
-            </Button>
-          </div>
-          <div className="flex items-center gap-4 md:hidden">
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full">
-              {mounted && theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
-            </Button>
-            <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </div>
-        </div>
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute inset-x-0 border-b md:hidden top-16 bg-background/95 backdrop-blur-lg"
-          >
-            <div className="container flex flex-col gap-4 py-4">
-              <Link href="#features" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
-                Features
-              </Link>
-              <Link href="#testimonials" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
-                Testimonials
-              </Link>
-              <Link href="#pricing" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
-                Pricing
-              </Link>
-              <Link href="#faq" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
-                FAQ
-              </Link>
-              <div className="flex flex-col gap-2 pt-2 border-t">
-                <Link href="#" className="py-2 text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
-                  Log in
-                </Link>
-                <Button className="rounded-full">
-                  Get Started
-                  <ChevronRight className="ml-1 size-4" />
-                </Button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </header>
+    
+
+<Navbar/>
+
+
+    
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-20 overflow-hidden md:py-32 lg:py-40">
@@ -218,26 +130,27 @@ export default function LandingPage() {
                 The all-in-one platform that helps You to prompt, learn and solve your problems. 
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Button size="lg" className="h-12 px-8 text-base rounded-full">
+              <Link href="/aiagents">  <Button size="lg" className="h-12 px-8 text-base rounded-full">
                   Start Now
                   <ArrowRight className="ml-2 size-4" />
                 </Button>
+                </Link>
                 {/* <Button size="lg" variant="outline" className="h-12 px-8 text-base rounded-full">
                   Book a Demo
                 </Button> */}
               </div>
               <div className="flex items-center justify-center gap-4 mt-6 text-sm text-muted-foreground">
                 <div className="flex items-center gap-1">
-                  <Check className="size-4 text-primary" />
-                  <span>No credit card</span>
+                  {/* <Check className="size-4 text-primary" /> */}
+                  <span></span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Check className="size-4 text-primary" />
-                  <span>14-day trial</span>
+                  <span>5 Free Tokens to Enterprise</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Check className="size-4 text-primary" />
-                  <span>Cancel anytime</span>
+                  <span>10 Free Tokens to individuals</span>
                 </div>
               </div>
             </motion.div>
@@ -250,7 +163,7 @@ export default function LandingPage() {
             >
               <div className="overflow-hidden border shadow-2xl rounded-xl border-border/40 bg-gradient-to-b from-background to-muted/20">
                 <Image
-                  src="https://cdn.dribbble.com/userupload/12302729/file/original-fa372845e394ee85bebe0389b9d86871.png?resize=1504x1128&vertical=center"
+                  src="https://plus.unsplash.com/premium_photo-1725985758331-e1b46919d8cf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   width={1280}
                   height={720}
                   alt="SaaSify dashboard"
@@ -266,7 +179,7 @@ export default function LandingPage() {
         </section>
 
         {/* Logos Section */}
-        <section className="w-full py-12 border-y bg-muted/30">
+        {/* <section className="w-full py-12 border-y bg-muted/30">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <p className="text-sm font-medium text-muted-foreground">Trusted by innovative companies worldwide</p>
@@ -284,7 +197,7 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Features Section */}
         <section id="features" className="w-full py-20 md:py-32">
@@ -299,7 +212,7 @@ export default function LandingPage() {
               <Badge className="rounded-full px-4 py-1.5 text-sm font-medium" variant="secondary">
                 Features
               </Badge>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Everything You Need to Succeed</h2>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Everything You Need to solve your problems with</h2>
               <p className="max-w-[800px] text-muted-foreground md:text-lg">
                 Our comprehensive platform provides all the tools you need to streamline your workflow, boost
                 productivity, and achieve your goals.
@@ -362,7 +275,7 @@ export default function LandingPage() {
                 },
                 {
                   step: "02",
-                  title: "Configure Workspace",
+                  title: "Configure your Suitable Agent",
                   description: "Customize your workspace to match your team's unique workflow and requirements.",
                 },
                 {
@@ -401,90 +314,89 @@ export default function LandingPage() {
               className="flex flex-col items-center justify-center mb-12 space-y-4 text-center"
             >
               <Badge className="rounded-full px-4 py-1.5 text-sm font-medium" variant="secondary">
-                Testimonials
-              </Badge>
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Loved by Teams Worldwide</h2>
-              <p className="max-w-[800px] text-muted-foreground md:text-lg">
-                Don't just take our word for it. See what our customers have to say about their experience.
-              </p>
+  Resources
+</Badge>
+<h2 className="text-3xl font-bold tracking-tight md:text-4xl">Latest Agents</h2>
+<p className="max-w-[800px] text-muted-foreground md:text-lg">
+  Explore our collection of latest agents to help you make the most of AI technology.
+</p>
             </motion.div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {[
-                {
-                  quote:
-                    "SaaSify has transformed how we manage our projects. The automation features have saved us countless hours of manual work.",
-                  author: "Sarah Johnson",
-                  role: "Project Manager, TechCorp",
-                  rating: 5,
-                },
-                {
-                  quote:
-                    "The analytics dashboard provides insights we never had access to before. It's helped us make data-driven decisions that have improved our ROI.",
-                  author: "Michael Chen",
-                  role: "Marketing Director, GrowthLabs",
-                  rating: 5,
-                },
-                {
-                  quote:
-                    "Customer support is exceptional. Any time we've had an issue, the team has been quick to respond and resolve it. Couldn't ask for better service.",
-                  author: "Emily Rodriguez",
-                  role: "Operations Lead, StartupX",
-                  rating: 5,
-                },
-                {
-                  quote:
-                    "We've tried several similar solutions, but none compare to the ease of use and comprehensive features of SaaSify. It's been a game-changer.",
-                  author: "David Kim",
-                  role: "CEO, InnovateNow",
-                  rating: 5,
-                },
-                {
-                  quote:
-                    "The collaboration tools have made remote work so much easier for our team. We're more productive than ever despite being spread across different time zones.",
-                  author: "Lisa Patel",
-                  role: "HR Director, RemoteFirst",
-                  rating: 5,
-                },
-                {
-                  quote:
-                    "Implementation was seamless, and the ROI was almost immediate. We've reduced our operational costs by 30% since switching to SaaSify.",
-                  author: "James Wilson",
-                  role: "COO, ScaleUp Inc",
-                  rating: 5,
-                },
-              ].map((testimonial, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
-                >
-                  <Card className="h-full overflow-hidden transition-all border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur hover:shadow-md">
-                    <CardContent className="flex flex-col h-full p-6">
-                      <div className="flex mb-4">
-                        {Array(testimonial.rating)
-                          .fill(0)
-                          .map((_, j) => (
-                            <Star key={j} className="text-yellow-500 size-4 fill-yellow-500" />
-                          ))}
-                      </div>
-                      <p className="flex-grow mb-6 text-lg">{testimonial.quote}</p>
-                      <div className="flex items-center gap-4 pt-4 mt-auto border-t border-border/40">
-                        <div className="flex items-center justify-center font-medium rounded-full size-10 bg-muted text-foreground">
-                          {testimonial.author.charAt(0)}
-                        </div>
-                        <div>
-                          <p className="font-medium">{testimonial.author}</p>
-                          <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+  {[
+    {
+      image: "https://images.unsplash.com/photo-1605792657660-596af9009e82?q=80&w=2002&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Add your image paths
+      title: "Cryptocurrency and AI: A Perfect Match",
+      description: " Discover how AI is revolutionizing the cryptocurrency market and enhancing trading strategies.",
+      link: "https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/03/29/14/20250329140014-ALZ155N9.json",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D              ",
+      title: "All About WEB and internet and Coding",
+      description: " Learn the basics of web development, coding languages, and how to build your first website.",
+      link: "https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/03/29/14/20250329143523-VO2OTO3N.json",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1591311630200-ffa9120a540f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzJ8fGZpdG5lc3N8ZW58MHx8MHx8fDA%3D",
+      title: "Health care Specialist ",
+      description: " Explore the latest trends in AI and healthcare, and how they are transforming patient care.",
+      link: "https://cdn.botpress.cloud/webchat/v2.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/03/30/03/20250330031951-ZDDN5ML3.json",
+    }
+  ].map((post, i) => (
+    <motion.div
+      key={i}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: i * 0.05 }}
+    >
+      <Card className="overflow-hidden transition-all duration-200 group border-border/40 bg-gradient-to-b from-background to-muted/10 backdrop-blur hover:shadow-md">
+        <CardContent className="p-0">
+          <div className="relative aspect-[16/9] overflow-hidden">
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+          <div className="p-6">
+            <h3 className="mb-2 text-xl font-bold">{post.title}</h3>
+            <p className="mb-6 text-muted-foreground">{post.description}</p>
+            <div className="flex justify-end">
+              <Link href={post.link} className="relative group/button">
+                <div className="absolute transition-colors rounded-full -inset-2 group-hover/button:bg-foreground" />
+                <div className="relative flex items-center justify-center transition-colors rounded-full size-10 bg-foreground group-hover/button:bg-background">
+                  <ArrowRight className="transition-colors size-5 text-background group-hover/button:text-foreground" />
+                </div>
+              </Link>
             </div>
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
+  ))}
+</div>
+ {/* See More Button */}
+ <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="flex justify-center mt-12"
+    >
+      <Link href="/aiagents">
+        <Button 
+          size="lg" 
+          className="relative overflow-hidden rounded-full group hover:text-black"
+          variant="outline"
+        >
+          <span className="relative z-10 ">See More AI Agents</span>
+          <div className="absolute inset-0 transition-opacity opacity-0 bg-gradient-to-r from-primary to-primary/60 group-hover:opacity-100 " />
+          <ArrowRight className="relative z-10 ml-2 size-5" />
+        </Button>
+      </Link>
+    </motion.div>
           </div>
         </section>
 
@@ -526,14 +438,14 @@ export default function LandingPage() {
                     {[
                       {
                         name: "Starter",
-                        price: "$29",
+                        price: "₹29",
                         description: "Perfect for small teams and startups.",
                         features: ["Up to 5 team members", "Basic analytics", "5GB storage", "Email support"],
                         cta: "Start Free Trial",
                       },
                       {
                         name: "Professional",
-                        price: "$79",
+                        price: "₹79",
                         description: "Ideal for growing businesses.",
                         features: [
                           "Up to 20 team members",
@@ -547,7 +459,7 @@ export default function LandingPage() {
                       },
                       {
                         name: "Enterprise",
-                        price: "$199",
+                        price: "₹199",
                         description: "For large organizations with complex needs.",
                         features: [
                           "Unlimited team members",
@@ -606,38 +518,33 @@ export default function LandingPage() {
                   <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
                     {[
                       {
-                        name: "Starter",
-                        price: "$23",
-                        description: "Perfect for small teams and startups.",
-                        features: ["Up to 5 team members", "Basic analytics", "5GB storage", "Email support"],
+                        name: "Individual",
+                        price: "₹20",
+                        description: "Perfect for small teams and individuals.",
+                        features: ["Up to 5 members from one account", "Basic analytics", , "limited use of New Ai agents"],
                         cta: "Start Free Trial",
                       },
                       {
                         name: "Professional",
-                        price: "$63",
-                        description: "Ideal for growing businesses.",
+                        price: "₹120",
+                        description: "Ideal for growing businesses and personal work.",
                         features: [
-                          "Up to 20 team members",
-                          "Advanced analytics",
-                          "25GB storage",
-                          "Priority email support",
-                          "API access",
+                          "unilimited use of all agents",
+                    "first to use the new Ai agents",
+                    "easy accessible of the keys"
+                    
                         ],
                         cta: "Start Free Trial",
                         popular: true,
                       },
                       {
                         name: "Enterprise",
-                        price: "$159",
+                        price: "₹160",
                         description: "For large organizations with complex needs.",
                         features: [
                           "Unlimited team members",
-                          "Custom analytics",
-                          "Unlimited storage",
-                          "24/7 phone & email support",
-                          "Advanced API access",
-                          "Custom integrations",
-                        ],
+                          "Customisable Agent request",
+                        "limited use of new ai agents"                        ],
                         cta: "Contact Sales",
                       },
                     ].map((plan, i) => (
@@ -711,9 +618,9 @@ export default function LandingPage() {
               <Accordion type="single" collapsible className="w-full">
                 {[
                   {
-                    question: "How does the 14-day free trial work?",
+                    question: "How does the free trial work?",
                     answer:
-                      "Our 14-day free trial gives you full access to all features of your selected plan. No credit card is required to sign up, and you can cancel at any time during the trial period with no obligation.",
+                      "Our free trial gives you full access to limited features of with specific tokens according to your plan.. No credit card is required to sign up, and you can cancel at any time during the trial period with no obligation.",
                   },
                   {
                     question: "Can I change plans later?",
@@ -721,7 +628,7 @@ export default function LandingPage() {
                       "Yes, you can upgrade or downgrade your plan at any time. If you upgrade, the new pricing will be prorated for the remainder of your billing cycle. If you downgrade, the new pricing will take effect at the start of your next billing cycle.",
                   },
                   {
-                    question: "Is there a limit to how many users I can add?",
+                    question: "Is there a limit to how many times can i use",
                     answer:
                       "The number of users depends on your plan. The Starter plan allows up to 5 team members, the Professional plan allows up to 20, and the Enterprise plan has no limit on team members.",
                   },
@@ -762,7 +669,7 @@ export default function LandingPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="relative w-full py-20 overflow-hidden md:py-32 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
+        {/* <section className="relative w-full py-20 overflow-hidden md:py-32 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
           <div className="absolute w-64 h-64 rounded-full -top-24 -left-24 bg-white/10 blur-3xl"></div>
           <div className="absolute w-64 h-64 rounded-full -bottom-24 -right-24 bg-white/10 blur-3xl"></div>
@@ -800,171 +707,9 @@ export default function LandingPage() {
               </p>
             </motion.div>
           </div>
-        </section>
+        </section> */}
       </main>
-      <footer className="w-full border-t bg-background/95 backdrop-blur-sm">
-        <div className="container flex flex-col gap-8 px-4 py-10 md:px-6 lg:py-16">
-          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 font-bold">
-                <div className="flex items-center justify-center rounded-lg size-8 bg-gradient-to-br from-primary to-primary/70 text-primary-foreground">
-                  S
-                </div>
-                <span>SaaSify</span>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Streamline your workflow with our all-in-one SaaS platform. Boost productivity and scale your business.
-              </p>
-              <div className="flex gap-4">
-                <Link href="#" className="transition-colors text-muted-foreground hover:text-foreground">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="size-5"
-                  >
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                  </svg>
-                  <span className="sr-only">Facebook</span>
-                </Link>
-                <Link href="#" className="transition-colors text-muted-foreground hover:text-foreground">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="size-5"
-                  >
-                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                  </svg>
-                  <span className="sr-only">Twitter</span>
-                </Link>
-                <Link href="#" className="transition-colors text-muted-foreground hover:text-foreground">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="size-5"
-                  >
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect width="4" height="12" x="2" y="9"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
-                  <span className="sr-only">LinkedIn</span>
-                </Link>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-sm font-bold">Product</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Link href="#features" className="transition-colors text-muted-foreground hover:text-foreground">
-                    Features
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#pricing" className="transition-colors text-muted-foreground hover:text-foreground">
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="transition-colors text-muted-foreground hover:text-foreground">
-                    Integrations
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="transition-colors text-muted-foreground hover:text-foreground">
-                    API
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-sm font-bold">Resources</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Link href="#" className="transition-colors text-muted-foreground hover:text-foreground">
-                    Documentation
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="transition-colors text-muted-foreground hover:text-foreground">
-                    Guides
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="transition-colors text-muted-foreground hover:text-foreground">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="transition-colors text-muted-foreground hover:text-foreground">
-                    Support
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-sm font-bold">Company</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Link href="#" className="transition-colors text-muted-foreground hover:text-foreground">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="transition-colors text-muted-foreground hover:text-foreground">
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="transition-colors text-muted-foreground hover:text-foreground">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="transition-colors text-muted-foreground hover:text-foreground">
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="flex flex-col items-center justify-between gap-4 pt-8 border-t sm:flex-row border-border/40">
-            <p className="text-xs text-muted-foreground">
-              &copy; {new Date().getFullYear()} SaaSify. All rights reserved.
-            </p>
-            <div className="flex gap-4">
-              <Link href="#" className="text-xs transition-colors text-muted-foreground hover:text-foreground">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="text-xs transition-colors text-muted-foreground hover:text-foreground">
-                Terms of Service
-              </Link>
-              <Link href="#" className="text-xs transition-colors text-muted-foreground hover:text-foreground">
-                Cookie Policy
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+    <Footer/>
     </div>
   )
 }
